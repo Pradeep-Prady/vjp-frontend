@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-body leading-6 bg-white scrollbar-hide relative;
+  }
+
+  .input {
+    @apply border p-3 focus:outline-dotted text-ternary w-full
+    placeholder:text-gray-500;
+  }
+
+  .inputError {
+    @apply text-red-600 placeholder:text-red-600 border-red-600 input;
+  }
+
+  .inputTitle {
+    @apply text-2xl font-medium text-ternary py-6 flex;
+  }
+
+  .label {
+    @apply text-black flex items-center gap-1 pb-2;
+  }
+
+  .title {
+    @apply text-[35px] font-bold leading-tight text-ternary text-justify md:text-left;
+  }
+
+  .sub-title {
+    @apply text-[18px] leading-8 text-quadra;
+  }
+}
+
+.centerContainer {
+  @apply xxxl:container xxxl:mx-auto;
+}
+
+.txt {
+  @apply text-sm text-ternary hover:text-primary transition-all ease-linear;
+}
+
+.bdrBlk {
+  @apply border border-black;
+}
+
+/* Padding */
+
+.pdngx {
+  @apply px-5;
+}
+
+.pddng {
+  @apply px-6 md:px-12 lg:px-[75px] py-24;
+}
+
+.pdng {
+  @apply px-4 md:px-16 lg:px-9 xl:px-24 py-24;
+}
+
+.redTile {
+  @apply bg-[#FFDCE5] text-[#FF1670] text-sm;
+}
+
+/* Buttons */
+.bttn {
+  @apply rounded px-6 py-3 text-sm font-medium border;
+}
+
+.primaryBttn {
+  @apply bg-primary text-white px-6 py-[10px] text-sm font-medium border
+  rounded-full;
+}
+
+.secondaryBttn {
+  @apply bg-[#F6F6F6] px-6 py-[10px] text-sm border
+  rounded-full;
+}
+
+.primeBttn {
+  @apply bg-black text-white px-5 py-3 rounded-full font-medium
+    transition-all ease-linear hover:bg-primary;
+}
+
+.primeBttnWhOut {
+  @apply bg-primary text-white px-5 py-3 rounded-full font-medium;
+}
+
+.primeWhiteBttn {
+  @apply bttn border border-primary text-primary
+    hover:bg-primary hover:text-white transition-all ease-linear;
+}
+
+.secBttn {
+  @apply bg-secondary border text-white px-7 py-3 font-medium border-secondary
+  text-sm rounded hover:bg-white hover:text-quadra transition-all ease-linear;
+}
+
+.secWhiteBttn {
+  @apply bg-white border text-quadra px-7 py-3 font-medium 
+  text-sm rounded hover:bg-secondary hover:text-white transition-all ease-linear;
+}
+
+.whiteBttn {
+  @apply bttn bg-white text-quadra hover:bg-transparent
+  hover:text-white transition-all ease-linear;
+}
+
+.transparentBttn {
+  @apply bttn hover:bg-white hover:text-quadra 
+  text-white transition-all ease-linear;
+}
+
+.planBttnActive {
+  @apply bg-primary text-white px-10 py-3 text-sm font-medium 
+  border rounded transition-all ease-linear duration-200;
+}
+.planBttn {
+  @apply bg-white text-ternary px-10 py-3 text-sm font-medium 
+  border rounded transition-all ease-linear;
+}
+
+.paginateBtn {
+  @apply bg-white text-primary px-3 py-1 border border-primary
+  hover:bg-primary hover:text-white transition-all ease-linear;
+}
+.paginateBtnDisabled {
+  @apply bg-white disabled:cursor-not-allowed text-primary/50
+  border border-primary/40  px-3 py-1;
+}
+
+/* Scrollbar: hide */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scrollbar: show */
+.scrollbar-show::-webkit-scrollbar {
+  display: block;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ecd6de;
+  border: none;
+  border-radius: 20px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #db7397;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #eb0f5d;
+}
+
+/* Hide number input spinner */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
