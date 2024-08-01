@@ -135,7 +135,6 @@ const ProductDetailsPage = () => {
     fetchData();
   }, [productId]);
 
-  console.log(product);
 
   return (
     <div className="space-y-5">
