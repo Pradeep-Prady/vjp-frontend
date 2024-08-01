@@ -22,7 +22,7 @@ const Users = () => {
   return (
     <div className="text-ternary space-y-4">
       <h1 className="text-3xl font-medium ">Users</h1>
-      <ul className=" flex flex-wrap justify-between">
+      <ul className=" flex flex-wrap gap-5">
         {users?.map((user) => (
           <UserItem key={user?._id} user={user} />
         ))}

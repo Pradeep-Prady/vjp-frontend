@@ -23,13 +23,13 @@ const CheckOutPage = () => {
   const user = useSelector((state) => state.user.user);
   const cart = useSelector((state) => state.cart.cart);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
-  const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
+  // const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
 
   const { mutate: placeOrder } = useMutation(
     (orderInfo) => axiosInstance.post("order/create", orderInfo),
     {
       onSuccess: (res) => {
-        console.log(res.data);
+        // console.log(res.data);
         navigate("/order-success");
         toast.success("You Order has been Placed :)");
       },
@@ -55,16 +55,16 @@ const CheckOutPage = () => {
       paymentMethod,
       deliveryType,
     };
-    console.log(orderInfo);
+    // console.log(orderInfo);
     placeOrder(orderInfo);
   };
-  console.log(deliveryType);
+  // console.log(deliveryType);
   return (
     <ProtectedRoute
       className="px-4 py-12  bg-white text-gray-500"
       URL="/account/sign-in"
     >
-      <div className="2xl:container mx-auto">
+      <div className="2xl:container max-w-[1100px] m-auto mx-auto">
         {/* CHECK OUT */}
         {cart.length === 0 ? (
           <div className="w-full sml:w-1/2 mx-auto text-center mb-10">

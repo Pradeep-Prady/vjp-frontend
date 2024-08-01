@@ -50,8 +50,8 @@ const AdminForm = () => {
     },
     {
       onSuccess: (res) => {
-        console.log(res);
-        console.log(document.cookie);
+        // console.log(res);
+        // console.log(document.cookie);
         dispatch(adminActions.loginAdmin());
       },
       onError: (error) => {

@@ -17,18 +17,18 @@ const Orders = () => {
     useQuery(["getUserOrders"], () => axiosInstance.get("/orders/my")),
     {
       onSuccess: (res) => {
-        console.log(res.data);
+        // console.log(res.data);
         dispatch(userActions.addOrders(res.data.data));
       },
       onError: (err) => console.log("An error happened:", err.message),
     }
   );
 
-  console.log(userOrders);
+  // console.log(userOrders);
   return (
     <>
       {userOrders && userOrders.length > 0 ? (
-        <ul className="space-y-2 py-4">
+        <ul className="space-y-2">
           {userOrders &&
             userOrders.map((order) => (
               <OrderItem key={order._id} {...{ order }} />

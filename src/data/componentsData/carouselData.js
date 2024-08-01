@@ -1,6 +1,8 @@
 import banner1 from "../../assets/heroBanner/banner1.png";
 import banner2 from "../../assets/heroBanner/banner2.png";
 import banner3 from "../../assets/heroBanner/banner3.png";
+import banner4 from "../../assets/heroBanner/Kitchen.svg";
+
 
 import image8 from "../../assets/heroBanner/image (8).png";
 import image9 from "../../assets/heroBanner/image (9).png";
@@ -21,7 +23,7 @@ export const carouselData = [
   {
     id: "cd_3",
     // URL: "https://Tailwindmix.b-cdn.net/carousel/carousel-image-02.jpg",
-    URL: banner3,
+    URL: banner4,
     textColor:"text-blue-600",
 
   },

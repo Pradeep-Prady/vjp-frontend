@@ -3,7 +3,7 @@ import ProductItem from "./ProductItem";
 import { selectRandomElements } from "../../utils/helperFunction";
 
 const RelatedProducts = ({ relatedProducts, category }) => {
-  console.log(relatedProducts);
+  // console.log(relatedProducts);
   return (
     <div className="px-5 space-y-6 py-12">
       <div className="flex gap-3 items-center justify-center">

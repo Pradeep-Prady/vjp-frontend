@@ -20,8 +20,6 @@ const ProductItem = ({ cardSize, category, product }) => {
   const navigate = useNavigate();
   const [isRedirect, setIsRedirect] = useState(false);
 
-  console.log(product);
-
   const { isAuthenticated, wishList: wishlistItems } = useSelector(
     (state) => state.user
   );
@@ -34,7 +32,6 @@ const ProductItem = ({ cardSize, category, product }) => {
     (id) => axiosInstance.put(`/user/wishlist/${id}`),
     {
       onSuccess: (res) => {
-        console.log(res);
         dispatch(
           exitsInWishList
             ? userActions.removeFromWishList(product?._id)
@@ -54,6 +51,8 @@ const ProductItem = ({ cardSize, category, product }) => {
     setIsRedirect((prevState) => !prevState);
     // alert(isRedirect)
   };
+
+  // console.log(product, "product");
 
   return (
     <li className="w-full sml:w-[47%] md:w-[31%] lg:w-[23%] mb-6 ">
@@ -81,11 +80,11 @@ const ProductItem = ({ cardSize, category, product }) => {
           src={product?.images ? product?.images[0] : productImg}
           alt=""
           loading="lazy"
-          className=" object-cover object-center h-72 w-full"
+          className=" object-cover object-center h-[400px] w-full"
         />
         {product?.discountPercentage && (
           <div className=" absolute top-4 right-4 text-sm bg-primary text-white px-2 py-[1px]">
-            {`${product?.discountPercentage}%`}
+            {`-${product?.discountPercentage}%`}
           </div>
         )}
         <div
@@ -150,31 +149,32 @@ const ProductItem = ({ cardSize, category, product }) => {
         </div>
       </div>
 
-      <div className="space-y-1">
+      <div className="relative">
         <Link
-          // to={"/products/" + itemTitle}
           to={`/products/${
             category ? category : product?.subCategory.split("/")[0]
           }/${product?._id}`}
-          // to={`${_id}`}
           className="text-[15px] font-medium text-ternary hover:text-pink-500
                   transition-all ease-linear cursor-pointer capitalize"
         >
           {product?.itemTitle}
         </Link>
-        <p className="text-[13px] font-medium">
-          {product?.discountPercentage ? (
-            <span className="flex items-center gap-1">
-              <span className="line-through">₹{product?.actualPrice}</span>{" "}
-              <span className="text-primary">{`₹${
-                product?.actualPrice -
-                (product?.actualPrice * product?.discountPercentage) / 100
-              }`}</span>
-            </span>
-          ) : (
-            <span className="text-primary">{`₹ ${product?.actualPrice}`}</span>
-          )}
-        </p>
+
+        <div className="relative">
+          <p className="text-[13px] font-medium absolute -bottom-5 left-0">
+            {product?.discountPercentage ? (
+              <span className="flex items-center gap-1">
+                <span className="line-through">₹{product?.actualPrice}</span>{" "}
+                <span className="text-primary">{`₹${
+                  product?.actualPrice -
+                  (product?.actualPrice * product?.discountPercentage) / 100
+                }`}</span>
+              </span>
+            ) : (
+              <span className="text-primary">{`₹ ${product?.actualPrice}`}</span>
+            )}
+          </p>
+        </div>
       </div>
     </li>
   );
@@ -188,6 +188,10 @@ const ModelSignup = ({ product }) => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+
+
+  
 
   const wishListSignInModal = useSelector(
     (state) => state.ui.modal.wishListSignInModal

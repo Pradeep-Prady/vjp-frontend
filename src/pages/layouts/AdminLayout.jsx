@@ -18,23 +18,31 @@ const AdminLayout = () => {
   );
 
   // Get Categories Data
-  useQueryEvents(
-    useQuery(["category"], () => axiosInstance.get("/categories")),
-    {
-      onSuccess: (res) => dispatch(adminActions.addCategories(res.data.data)),
-      onError: (err) => console.log("An error happened:", err.message),
-    }
-  );
+  // useQueryEvents(
+  //   useQuery(["category"], () => axiosInstance.get("/categories")),
+  //   {
+  //     onSuccess: (res) => dispatch(adminActions.addCategories(res.data.data)),
+  //     onError: (err) => console.log("An error happened:", err.message),
+  //   }
+  // );
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axiosInstance.get("/categories");
+      dispatch(adminActions.addCategories(response.data.data));
+    };
+    fetchData();
+  }, []);
 
   // Get Products Data
-  useQueryEvents(
-    useQuery(["getProducts"], () => axiosInstance.get("/items")),
-    {
-      onSuccess: (res) =>
-        dispatch(adminActions.addProducts(res.data.data.items)),
-      onError: (err) => console.log("An error happened:", err.message),
-    }
-  );
+  // useQueryEvents(
+  //   useQuery(["getProducts"], () => axiosInstance.get("/items")),
+  //   {
+  //     onSuccess: (res) =>
+  //       dispatch(adminActions.addProducts(res.data.data.items)),
+  //     onError: (err) => console.log("An error happened:", err.message),
+  //   }
+  // );
 
   // Check If Admin is Logged In Or Not
   useEffect(() => {
@@ -56,7 +64,7 @@ const AdminLayout = () => {
     (data) => axiosInstance.get("/admin/logout", data),
     {
       onSuccess: (res) => {
-        console.log(res.data);
+        // console.log(res.data);
         dispatch(adminActions.logOutAdmin());
       },
     }

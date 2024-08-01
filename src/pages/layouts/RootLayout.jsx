@@ -22,23 +22,47 @@ const RootLayout = () => {
 
   const isOpen = useSelector((state) => state.ui.showMenuBar);
 
-  // Get Products Data
+  // Get Categorys Data
   useQueryEvents(
     useQuery(["getCategorys"], () => axiosInstance.get("/categories")),
     {
       onSuccess: (res) => {
-        dispatch(productActions.addProducts(res.data.data));
+        // dispatch(productActions.addProducts(res.data.data));
+        // console.log(res.data.data, "categories");
+
+        dispatch(productActions.addCategories(res.data.data));
       },
+
       onError: (err) => console.log("An error happened:", err.message),
     }
   );
+
+  // Get Products Data
+
+  // useQueryEvents(
+  //   useQuery(["getProducts"], () => axiosInstance.get("/top-categories")),
+  //   {
+  //     onSuccess: (res) => {
+  //       // dispatch(productActions.addProducts(res.data.data));
+  //       console.log(res.data.data.items, "products");
+
+  //       // dispatch(productActions.addProducts(res.data.data.items));
+  //       setTopCategories(res.data.data.items);
+  //     },
+
+  //     onError: (err) => console.log("An error happened:", err.message),
+  //   }
+  // );
+
+
+
 
   // Check If User is Logged In Or Not
   useEffect(() => {
     const checkIfUserIsLoggedInOrNot = async () => {
       try {
         const res = await axiosInstance.get("/user/profile/me");
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.data) {
           dispatch(userActions.loginUser());
           dispatch(userActions.setUser(res.data.data));

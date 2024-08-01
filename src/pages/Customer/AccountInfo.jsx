@@ -184,7 +184,7 @@ const AccountInfo = () => {
       newPassword: user.newPswd.value,
       confirmPassword: user.confirmNewPswd.value,
     };
-    console.log(updatedPassword);
+    // console.log(updatedPassword);
     updateUsersPassword(updatedPassword);
   };
   return (

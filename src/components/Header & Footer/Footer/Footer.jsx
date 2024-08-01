@@ -6,8 +6,8 @@ import { footerData, links } from "./footerData";
 import { useSelector } from "react-redux";
 
 const Footer = () => {
-  const { products } = useSelector((state) => state.product);
-  console.log(products);
+  const { categories } = useSelector((state) => state.product);
+  // console.log(products);
 
   return (
     <footer className="text-ternary w-full bg-[#F2F6F8] border-t text-[15px]">
@@ -41,7 +41,7 @@ const Footer = () => {
         >
           <h4 className="text-ternary text-xl font-semibold">Categories</h4>
           <ul className="space-y-1">
-            {products?.map((product) => (
+            {categories?.map((product) => (
               <li key={product?._id} className="capitalize">
                 <Link to={`/products/${product?.category}`}>
                   {product?.title?.trim()}

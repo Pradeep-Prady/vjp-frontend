@@ -5,6 +5,11 @@ const productSlice = createSlice({
   initialState: {
     runUseEffect: true,
     // Categories Data
+    categories: [],
+
+    
+
+    topCategories:[],
     products: [],
     allProducts: [],
     subCategory: null,
@@ -14,8 +19,15 @@ const productSlice = createSlice({
       state.runUseEffect = false;
     },
     // Categories Data
+
+    addCategories(state, action) {
+      state.categories = action.payload;
+    },
     addProducts(state, action) {
       state.products = action.payload;
+    },
+    addTopCategories(state, action) {
+      state.topCategories = action.payload;
     },
     addAllProducts(state, action) {
       state.allProducts = action.payload;

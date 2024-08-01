@@ -16,7 +16,7 @@ const WishListItem = ({ product }) => {
     (id) => axiosInstance.put(`/user/wishlist/${id}`),
     {
       onSuccess: (res) => {
-        console.log(res);
+        // console.log(res);
         dispatch(userActions.removeFromWishList(product?._id));
         toast.success("Product Removed from WishList!");
       },

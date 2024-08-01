@@ -84,8 +84,8 @@ const CategoryForm = ({ init, type = "ADD", getFormData }) => {
     ),
     {
       onSuccess: (res) => {
-        console.log(categoryId);
-        console.log(res.data);
+        // console.log(categoryId);
+        // console.log(res.data);
         if (flag) {
           dispatch({
             type: "INITIAL_VALUE",

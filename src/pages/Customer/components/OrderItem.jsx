@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { formatDateAndTime } from "../../../utils/helperFunction";
+ 
 
 const OrderItem = ({ order }) => {
   const [orderSummary, setOrderSummary] = useState(true);
@@ -9,7 +10,7 @@ const OrderItem = ({ order }) => {
     <li className="border">
       <div className="border-b flex flex-wrap md:flex-nowrap justify-between p-3 bg-[#F6F6F8] gap-3 md:gap-0">
         <h1 className="bg-blue-500 text-white text-sm py-2 px-3 w-full md:w-fit text-center ">
-          OD{order._id}
+           {order.orderID || "Order ID"} 
         </h1>
         <div className="flex justify-center items-center gap-6 w-full md:w-fit">
           <h1

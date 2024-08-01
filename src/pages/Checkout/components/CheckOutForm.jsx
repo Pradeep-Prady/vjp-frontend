@@ -215,8 +215,8 @@ const CheckOutForm = ({ setIsShippingCmplted }) => {
     }
   }, [user]);
 
-  console.log(user);
-  console.log(form);
+  // console.log(user);
+  // console.log(form);
 
   return (
     <section className="w-full lg:w-[63%] space-y-8">

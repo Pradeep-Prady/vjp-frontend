@@ -10,7 +10,7 @@ const Dashboard = () => {
   const dispatch = useDispatch();
 
   const dashboard = useSelector((state) => state.admin.dashboard);
-  console.log(dashboard);
+  // console.log(dashboard);
 
   useQuery(["getDashboardData"], () => axiosInstance.get("/admin/dashboard"), {
     onSuccess: (res) => dispatch(adminActions.setDashboard(res.data.data)),
@@ -25,7 +25,7 @@ const Dashboard = () => {
       <h1 className="text-3xl font-medium ">Dashboard</h1>
       <ul className="flex justify-between gap-4">
         {/* Orders */}
-        <li className="flex items-center bg-white w-1/4 p-4 border gap-3">
+        <li className="flex items-center h-[150px] bg-white w-1/4 p-4 border gap-3">
           <div className="w-12 h-12 rounded-full bg-green-200 flex justify-center items-center">
             <BiSolidShoppingBags className="text-green-500 scale-125" />
           </div>

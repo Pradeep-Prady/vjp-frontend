@@ -15,7 +15,7 @@ import SignIn from "./pages/SignUp&SignIn/SignIn/SignIn.jsx";
 import SignUp from "./pages/SignUp&SignIn/SignUp/SignUp.jsx";
 import ProductLayout from "./pages/layouts/ProductLayout.jsx";
 import CategoryPage from "./pages/product/CategoryPage.jsx";
-import { loader as getProductsLoader } from "./config/Firebase.jsx";
+// import { loader as getProductsLoader } from "./config/Firebase.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
 import NewArrivalPage from "./pages/NewArrivalPage.jsx";
 import TodayDealsPage from "./pages/TodayDealsPage.jsx";
@@ -49,7 +49,7 @@ const routes = createBrowserRouter([
   {
     path: "/",
     id: "products",
-    loader: getProductsLoader,
+    // loader: getProductsLoader,
     element: <RootLayout />,
     errorElement: <ErrorPage />,
     children: [
@@ -233,7 +233,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <FramerMotion>
     <QueryClientProvider client={queryClient}>
       <ToastContainer
-        autoClose={3000}
+        autoClose={1000}
         newestOnTop={true}
         className="font-poppins"
       />

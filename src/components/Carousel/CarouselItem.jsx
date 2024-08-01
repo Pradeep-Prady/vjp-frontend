@@ -9,7 +9,7 @@ const CarouselItem = ({ URL,textColor }) => {
         alt=""
         className="m-auto max-h-full w-full max-w-full object-cover object-center"
       />
-      <div className="absolute inset-0 flex items-center p-3 sm:p-10 md:p-28">
+      {/* <div className="absolute inset-0 flex items-center p-3 sm:p-10 md:p-28">
         <div>
           <m.h1
             className={`text-[20px] md:text-[32px] lg:text-[68px] md:w-9/12 lg:w-1/2 ${textColor} leading-tight`}
@@ -31,7 +31,7 @@ const CarouselItem = ({ URL,textColor }) => {
             </m.h1>
           </div>
         </div>
-      </div>
+      </div> */}
     </li>
   );
 };

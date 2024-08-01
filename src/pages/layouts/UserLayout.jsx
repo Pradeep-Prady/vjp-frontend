@@ -37,34 +37,36 @@ const UserLayout = () => {
           .map((i) => i[0].toUpperCase() + i.slice(1))
           .join(" ")}
       />
-      <div
-        className="flex flex-wrap-reverse lg:flex-nowrap px-3 lg:px-5 py-14 justify-between items-start relative
-      gap-5 lg:gap-0"
-      >
-        <ul className="text-gray-500 border p-7 space-y-5 w-full lg:w-[20%] sticky top-10">
-          {userLayoutData.map(({ id, path, text }) => (
-            <li key={id}>
-              <NavLink
-                to={`/customer${path}`}
-                className={({ isActive }) =>
-                  `text-[15px] hover:text-primary transition-all ease-linear duration-300
+      <div className="w-full flex justify-center">
+        <div
+          className="flex min-w-[1200px] max-w-[1300px]  flex-wrap-reverse lg:flex-nowrap px-3 lg:px-5 py-14 justify-between items-start relative
+     gap-5 lg:gap-0"
+        >
+          <ul className="text-gray-500 border p-7 space-y-5 w-full lg:w-[20%] sticky top-10 ">
+            {userLayoutData.map(({ id, path, text }) => (
+              <li key={id}>
+                <NavLink
+                  to={`/customer${path}`}
+                  className={({ isActive }) =>
+                    `text-[15px] hover:text-primary transition-all ease-linear duration-300
                   
                   ${isActive && "text-primary cursor-text font-medium"}`
-                }
-              >
-                {text}
-              </NavLink>
+                  }
+                >
+                  {text}
+                </NavLink>
+              </li>
+            ))}
+            <li
+              className="text-[15px] hover:text-primary transition-all ease-linear duration-300 cursor-pointer w-fit"
+              onClick={logOutUser}
+            >
+              Logout
             </li>
-          ))}
-          <li
-            className="text-[15px] hover:text-primary transition-all ease-linear duration-300 cursor-pointer w-fit"
-            onClick={logOutUser}
-          >
-            Logout
-          </li>
-        </ul>
-        <div className="w-full lg:w-[78%]">
-          <Outlet />
+          </ul>
+          <div className="w-full lg:w-[78%]">
+            <Outlet />
+          </div>
         </div>
       </div>
     </ProtectedRoute>

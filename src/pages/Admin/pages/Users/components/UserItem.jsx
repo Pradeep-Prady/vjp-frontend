@@ -8,12 +8,12 @@ const UserItem = ({ user }) => {
       <div className="w-12 h-12 rounded-full bg-pink-200 flex justify-center items-center">
         <FaUser className="scale-150" />
       </div>
-      <h1 className="text-blue-500 underline">{user?._id}</h1>
-      <h1>{user?.gstNum}</h1>
+      {/* <h1 className="text-blue-500 underline">{user?._id}</h1> */}
       <h5>{`${user?.fName} ${user?.lName}`}</h5>
       <a href={`mailto:user@example.com`} className="text-blue-800 underline">
         {user?.email}
       </a>
+      <h1>GST NO : {user?.gstNum}</h1>
       {viewMore && <h1>{`${user?.phNum}`}</h1>}
       {viewMore && (
         <div className="text-[15px] border-t pt-2">

@@ -4,6 +4,8 @@ import { LiaShoppingCartSolid } from "react-icons/lia";
 import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 import { LuUser2 } from "react-icons/lu";
 import { FiHeart, FiMenu } from "react-icons/fi";
+import { BsCart2 } from "react-icons/bs";
+import { CiHeart } from "react-icons/ci";
 import { navBarData } from "./headerData";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -13,6 +15,9 @@ import { uiActions } from "../../../store/uiSlice";
 import { useMutation } from "react-query";
 import { axiosInstance } from "../../../services/axios";
 import { toast } from "react-toastify";
+import heartIcon from "../../../assets/svg/heart.svg";
+import cartIcon from "../../../assets/svg/shopping-cart.svg";
+import usertIcon from "../../../assets/svg/Profile.svg";
 
 const Header = () => {
   const [isUserMenuVisible, setIsUserMenuVisible] = useState(false);
@@ -21,6 +26,7 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
+  const { cart } = useSelector((state) => state.cart);
 
   const userMenuHandler = (to) => {
     setIsUserMenuVisible((prevState) => !prevState);
@@ -66,7 +72,7 @@ const Header = () => {
         transition={{ duration: 0.5, ease: "linear" }}
         className="sticky top-0 left-0 right-0 z-40 bg-white border"
       >
-        <div className="flex justify-between items-center px-4 sml:px-6 py-4  font-light relative centerContainer">
+        <div className="flex justify-between items-center px-4 sml:px-6 py-6  font-light relative centerContainer">
           <button
             className="lg:hidden scale-[1.5]"
             onClick={() => dispatch(uiActions.menuBarHanlder())}
@@ -97,7 +103,12 @@ const Header = () => {
                 }
                 className="flex gap-1 items-center "
               >
-                <LuUser2 className="scale-[1.5] cursor-pointer" />
+                <img
+                  src={usertIcon}
+                  alt=""
+                  className=" cursor-pointer"
+                />
+                {/* <LuUser2 className="scale-[1.5] cursor-pointer" /> */}
                 {isAuthenticated &&
                   (!isUserMenuVisible ? <BiChevronDown /> : <BiChevronUp />)}
               </div>
@@ -134,10 +145,15 @@ const Header = () => {
             <Link
               to={isAuthenticated ? "/customer/wish-list" : "/account/sign-in"}
             >
-              <FiHeart className="scale-[1.3] sml:scale-[1.5] cursor-pointer" />
+              <img src={heartIcon} alt="" className=" cursor-pointer" />
+              {/* <CiHeart className="scale-[1.3] sml:scale-[1.5] cursor-pointer" /> */}
             </Link>
-            <Link to="/cart">
-              <LiaShoppingCartSolid className="scale-[1.6] sml:scale-[1.7] cursor-pointer" />
+            <Link to="/cart" className="relative">
+              <img src={cartIcon} alt="" className="cursor-pointer" />
+              {/* <BsCart2 className="scale-[1.6] sml:scale-[1.7] cursor-pointer" /> */}
+              <span className="absolute top-3 left-3 w-5 h-5 rounded-full bg-primary text-white text-xs flex justify-center items-center">
+                {cart?.length}
+              </span>
             </Link>
           </div>
         </div>

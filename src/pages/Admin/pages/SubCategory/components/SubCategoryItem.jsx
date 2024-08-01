@@ -6,28 +6,67 @@ import { useMutation, useQueryClient } from "react-query";
 import { axiosInstance } from "../../../../../services/axios";
 import { useDispatch, useSelector } from "react-redux";
 import { adminActions } from "../../../../../store/adminSlice";
+import { useNavigate } from "react-router-dom";
 
-const SubCategoryItem = ({ ctgryId, sbCtgry, dispatch }) => {
+const SubCategoryItem = ({ ctgryId, sbCtgry, dispatch, CategoriesData }) => {
   const queryClient = useQueryClient();
 
   const [value, setValue] = useState(sbCtgry.name);
   const [updateSbCtgry, setUpdateSbCtgry] = useState(false);
+  const navigate = useNavigate();
 
   const categories = useSelector((state) => state.admin.categorys);
+
+  // const dispatch = useDispatch();
+
+  // const fetchData = async () => {
+  //   const response = await axiosInstance.get("/categories");
+
+  //   console.log(response.data.data, "fetchData");
+  //   dispatch(adminActions.addCategories(response.data.data));
+  // };
+
+  const fetchData = async () => {
+    try {
+      const response = await axiosInstance.get("/categories");
+      const updatedCategories = response.data.data;
+      CategoriesData(updatedCategories);
+      dispatch(adminActions.addCategories(updatedCategories));
+    } catch (error) {
+      console.error("Error fetching categories:", error);
+    }
+  };
 
   const { mutate: updateHandler } = useMutation(
     (data) =>
       axiosInstance.put(`category/${ctgryId}/${sbCtgry._id}/update`, data),
     {
-      onSuccess: (res) => setUpdateSbCtgry(false),
+      onSuccess: (res) => {
+        setUpdateSbCtgry(false);
+        fetchData();
+      },
       onError: (error) => console.log(error),
     }
   );
 
-  const { mutate: deleteHandler, isSuccess } = useMutation(
+  // const { mutate: deleteHandler, isSuccess } = useMutation(
+  //   () => axiosInstance.delete(`category/${ctgryId}/${sbCtgry._id}/delete`),
+  //   {
+  //     onSuccess: () => {
+  //       queryClient.invalidateQueries(["category"]);
+  //       fetchData();
+  //     },
+  //     onError: (error) => console.log(error),
+  //   }
+  // );
+
+  const { mutate: deleteHandler } = useMutation(
     () => axiosInstance.delete(`category/${ctgryId}/${sbCtgry._id}/delete`),
     {
-      onSuccess: () => queryClient.invalidateQueries(["category"]),
+      onSuccess: () => {
+        queryClient.invalidateQueries(["category"]); // Ensure this matches your query key
+        fetchData(); // Refetch categories from backend and update Redux
+      },
       onError: (error) => console.log(error),
     }
   );

@@ -46,11 +46,9 @@ export default function Carousel() {
             {/* {carouselData.map(({ id, URL, }) => (
               <CarouselItem key={id} URL={URL} />
             ))} */}
-            {
-              carouselData.map(({ id, URL, textColor }) => (
-                <CarouselItem key={id} URL={URL} textColor={textColor} />
-              ))
-            }
+            {carouselData.map(({ id, URL, textColor }) => (
+              <CarouselItem key={id} URL={URL} textColor={textColor} />
+            ))}
           </ul>
         </div>
         {/*    <!-- Controls --> */}
@@ -60,20 +58,20 @@ export default function Carousel() {
           data-glide-el="controls"
         >
           <button
-            className="inline-flex h-8 w-8 items-center justify-center  border border-slate-700 bg-white/20 text-slate-700 transition duration-300 hover:border-slate-900 hover:text-slate-900 focus-visible:outline-none lg:h-10 lg:w-10
+            className="inline-flex h-8 w-8 items-center justify-center text-slate-700 transition duration-300 hover:border-slate-900 hover:text-slate-900 focus-visible:outline-none lg:h-10 lg:w-10
             group/prev"
             data-glide-dir="<"
             aria-label="prev slide"
           >
-            <FaAngleLeft className="group-hover/prev:scale-[1.5] transition-all ease-linear duration-[200ms]" />
+            <FaAngleLeft className="scale-[1.5] transition-all ease-linear duration-[200ms]" />
           </button>
           <button
-            className="inline-flex h-8 w-8 items-center justify-center border border-slate-700 bg-white/20 text-slate-700 transition duration-300 hover:border-slate-900 hover:text-slate-900 focus-visible:outline-none lg:h-10 lg:w-10
+            className="inline-flex h-8 w-8 items-center justify-center  text-slate-700 transition duration-300 hover:border-slate-900 hover:text-slate-900 focus-visible:outline-none lg:h-10 lg:w-10
             group/next"
             data-glide-dir=">"
             aria-label="next slide"
           >
-            <FaAngleRight className="group-hover/next:scale-[1.5] transition-all ease-linear duration-[200ms]" />
+            <FaAngleRight className="scale-[1.5] transition-all ease-linear duration-[200ms]" />
           </button>
         </div>
       </div>

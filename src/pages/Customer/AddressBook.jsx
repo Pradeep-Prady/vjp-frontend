@@ -272,7 +272,7 @@ const AddressBook = () => {
       city: userInfo.city.value,
       zipCode: userInfo.zipCode.value,
     };
-    console.log(updatedUserInfo);
+    // console.log(updatedUserInfo);
     updateUserInfo(updatedUserInfo);
   };
 

@@ -82,7 +82,7 @@ const SignIn = () => {
     (data) => axiosInstance.post("/user/login", data),
     {
       onSuccess: (res) => {
-        console.log(res.data);
+        // console.log(res.data);
         toast.success(onlyText(res.data.message));
         dispatchRedux(userActions.loginUser());
         dispatchRedux(userActions.setUser(res.data.user));
@@ -129,7 +129,7 @@ const SignIn = () => {
             : "Password must be at least 6 characters.",
       });
     } else {
-      console.log(signInForm);
+      // console.log(signInForm);
       loginUser({
         email: signInForm.email.value.trim(),
         pswd: signInForm.pswd.value.trim(),
@@ -184,7 +184,7 @@ const SignIn = () => {
                 type="checkbox"
                 name="shwPswd"
                 id="shwPswd"
-                checked={signInForm.showPswd.value}
+                checked={signInForm?.showPswd?.value }
                 onClick={() => dispatch({ type: "showPswdVal" })}
               />
               <label htmlFor="shwPswd"> Show Password</label>

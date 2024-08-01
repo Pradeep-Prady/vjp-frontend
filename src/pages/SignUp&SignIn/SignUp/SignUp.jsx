@@ -9,21 +9,21 @@ import { onlyText } from "../../../utils/helperFunction";
 
 const initialValue = {
   isValid: { error: "" },
-  email: { value: "dineshbalansrinivasan@gmail.com", error: "" },
-  pswd: { value: "Balan@1582", error: "" },
-  confirmPswd: { value: "Balan@1582", error: "" },
-  gstNum: { value: "abcd1582e9f6g7h", error: "" },
+  email: { value: "", error: "" },
+  pswd: { value: "", error: "" },
+  confirmPswd: { value: "", error: "" },
+  gstNum: { value: "", error: "" },
 
-  fName: { value: "Dinesh", error: "" },
-  lName: { value: "Balan", error: "" },
-  cmpny: { value: "nextskill", error: "" },
-  phNum: { value: "8610495955", error: "" },
+  fName: { value: "", error: "" },
+  lName: { value: "", error: "" },
+  cmpny: { value: "", error: "" },
+  phNum: { value: "", error: "" },
 
-  strtAddrss: { value: "SAP Theatre", error: "" },
+  strtAddrss: { value: "", error: "" },
   cntry: { value: "India", error: "" },
   state: { value: "Tamil Nadu", error: "" },
-  city: { value: "Tiruppur", error: "" },
-  zipCode: { value: "641603", error: "" },
+  city: { value: "", error: "" },
+  zipCode: { value: "", error: "" },
 };
 
 const reducer = (prevState, action) => {
@@ -70,6 +70,16 @@ const reducer = (prevState, action) => {
       : {
           ...prevState,
           confirmPswd: { ...prevState.confirmPswd, error: action.payload },
+        };
+  } else if (action.type === "gstNumVal" || action.type === "gstNumVal") {
+    return action.type === "gstNumVal"
+      ? {
+          ...prevState,
+          gstNum: { ...prevState.gstNum, value: action.payload },
+        }
+      : {
+          ...prevState,
+          gstNum: { ...prevState.gstNum, error: action.payload },
         };
   }
   // First Name
@@ -240,7 +250,7 @@ const SignUp = () => {
       }
     }
 
-    console.log(extractedData);
+    // console.log(extractedData);
     createUser(extractedData);
     //   if (
     //     form.fName.value.trim().length === 0 &&
@@ -326,7 +336,6 @@ const SignUp = () => {
         <div className="border w-full lg:w-[35%] p-6 space-y-8 h-fit sticky top-0">
           <h1 className="text-xl font-semibold">Sign-in Information</h1>
           <form action="" className="text-[15px] text-gray-500 space-y-5">
-            
             <div>
               <LabelText
                 text="Email"

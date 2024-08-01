@@ -14,11 +14,11 @@ const adminSlice = createSlice({
   },
   reducers: {
     loginAdmin(state) {
-      console.log("Login: " + state.isAuthenticated);
+      // console.log("Login: " + state.isAuthenticated);
       state.isAuthenticated = true;
     },
     logOutAdmin(state) {
-      console.log("Logout: " + state.isAuthenticated);
+      // console.log("Logout: " + state.isAuthenticated);
       state.isAuthenticated = false;
     },
 

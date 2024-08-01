@@ -21,8 +21,8 @@ const MenuItem = ({ id, URL, text, subMenu }) => {
     // window.scrollTo(0, 0);  -> COMMENTED BECAUSE SCROLL_RESTORATION HAS BEEN ADDED IN ROOTLAYOUT
   };
 
-  console.log(subMenuItems);
-  console.log(isAuthenticated);
+  // console.log(subMenuItems);
+  // console.log(isAuthenticated);
 
   return (
     <>

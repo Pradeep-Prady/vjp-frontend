@@ -24,7 +24,7 @@ const TopCategorys = ({ data, style }) => {
                 h-full ease-linear -z-50 object-cover"
               />
               <div className="absolute inset-0  flex justify-center items-end py-6">
-                <h1 className="bg-white px-2 mxl:px-3 py-2 text-[15px] font-semibold">
+                <h1 className="bg-white px-2 duration-500 ease-in-out hover:bg-primary hover:text-white mxl:px-3 py-2 text-[15px] font-">
                   {name}
                 </h1>
               </div>

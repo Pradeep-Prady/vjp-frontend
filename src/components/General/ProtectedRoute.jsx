@@ -5,6 +5,8 @@ import { Navigate } from "react-router-dom";
 const ProtectedRoute = ({ children, className, URL = "/" }) => {
   const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
 
+  console.log(isAuthenticated);
+
   return !isAuthenticated ? (
     <Navigate to={URL} />
   ) : (

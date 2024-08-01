@@ -25,6 +25,7 @@ export const UserInformationForm = ({
             error={userInfo.gstNum.error}
           />
           <Input
+          
             id="gstNum"
             dispatch={dispatch}
             value={userInfo.gstNum.value}

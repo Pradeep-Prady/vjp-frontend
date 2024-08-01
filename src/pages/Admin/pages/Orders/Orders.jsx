@@ -42,7 +42,7 @@ const Orders = () => {
     {
       enabled: !!fromDate && !!toDate,
       onSuccess: (res) => {
-        console.log(res.data);
+        // console.log(res.data);
         dispatch(adminActions.addOrders(res.data.data));
       },
       onError: (err) => console.log("An error happened:", err.message),
@@ -53,9 +53,9 @@ const Orders = () => {
     setStatus(selectedOption ? selectedOption.value : "");
   };
 
-  console.log(orders);
-  console.log(fromDate);
-  console.log(toDate);
+  // console.log(orders);
+  // console.log(fromDate);
+  // console.log(toDate);
   return (
     <div className="text-ternary space-y-4">
       <h1 className="text-3xl font-medium">Orders</h1>
@@ -128,8 +128,8 @@ export default Orders;
 const OrderRow = ({ order }) => {
   return (
     <tr className="text-sm">
-      <td className="border px-2 py-2 text-blue-800 underline">
-        <Link to={`/admin/orders/${order._id}`}>{order._id}</Link>
+      <td className="border px-2 py-2 text-blue-800">
+        <Link to={`/admin/orders/${order._id}`}>{order.orderID || "Order ID"}</Link>
       </td>
       <td className="border px-2 py-2">{order.user.email}</td>
       <td className="border px-2 py-2">₹{order.total}</td>

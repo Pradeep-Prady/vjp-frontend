@@ -93,8 +93,9 @@ const reducer = (prevState, action) => {
 const AdditionalInfo = ({ description }) => {
   const [state, dispatch] = useReducer(reducer, "details");
   return (
-    <div className="py-14 px-5 bg-[#F6F6F6]">
-      <ul className="flex flex-wrap justify-center gap-3 mb-8">
+    <div className="py-14 px-5  flex items-center justify-center bg-[#F6F6F6]">
+      <div className="max-w-[1200px]">
+  <ul className="flex flex-wrap justify-center gap-3 mb-8">
         {additionlInfoData.map(({ id, text, action }) => (
           <li
             key={id}
@@ -120,6 +121,8 @@ const AdditionalInfo = ({ description }) => {
           <WarrentyAndShipping />
         )}
       </div>
+      </div>
+    
     </div>
   );
 };

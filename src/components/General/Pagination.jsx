@@ -10,6 +10,8 @@ const Pagination = ({
   for (let index = 1; index <= totalpages; index++) {
     pages.push(index);
   }
+
+  console.log(pages, currentPageNumber);
   return (
     <div className="flex justify-center items-center gap-3 scale-[0.6] sml:scale-[0.7] md:scale-[0.8] mdl:scale-[0.9] lgl:scale-100">
       <button
@@ -28,7 +30,7 @@ const Pagination = ({
         <button
           className={
             currentPageNumber === page
-              ? "paginateBtn bg-primary text-white"
+              ? "paginateBtn !bg-primary !text-white"
               : "paginateBtn"
           }
           key={index}

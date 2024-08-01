@@ -59,14 +59,14 @@ const statusOptions = [
 
 const OrderDetails = () => {
   const { orderId } = useParams();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [order, setOrder] = useState({});
   const [status, setStatus] = useState(null); // Initially null
   const componentRef = useRef();
-  const [showPdf, setShowPdf] = useState(false);
+  // const [showPdf, setShowPdf] = useState(false);
 
-  console.log(order);
-  console.log(status);
+  // console.log(order);
+  // console.log(status);
 
   // Get Specific Order Data
   const { data, error, isLoading } = useQuery(

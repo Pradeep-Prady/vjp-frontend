@@ -12,13 +12,11 @@ const Cart = () => {
   const totalPrice = useSelector((state) => state.cart.totalPrice);
   const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
 
-  console.log(cart);
-  console.log(totalPrice);
   return (
-    <section>
+    <section className=" ">
       <Banner text="Shopping Cart" />
       {cart.length > 0 ? (
-        <div className="px-[10px] sml:px-4 py-10 sml:py-16">
+        <div className="px-[10px] sml:px-4 py-10 sml:py-16 max-w-[1000px] m-auto">
           {/* CART */}
           <div>
             {/* CART TITLE */}
@@ -34,7 +32,7 @@ const Cart = () => {
             {/* CART ITEMS */}
             <ul className="text-gray-500 text-[15px] space-y-3 lg:space-y-0">
               {cart.map((product) => (
-                <CartItem key={product.itemId} product={product} />
+                <CartItem key={product._id} product={product} />
               ))}
             </ul>
             <div className="flex justify-between items-center py-8">
