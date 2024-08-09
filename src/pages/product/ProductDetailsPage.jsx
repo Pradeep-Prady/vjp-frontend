@@ -124,6 +124,7 @@ const ProductDetailsPage = () => {
   //   );
   //   setProduct(filteredProduct);
   // }, [products, category]);
+  
 
   useEffect(() => {
     const fetchData = async () => {
